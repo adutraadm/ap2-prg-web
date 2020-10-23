@@ -98,22 +98,18 @@ function calcularPrest() {
 
 
 function calcularNota() {
-   var precprod = document.calcform4.valorVisA.value; 
-   if (document.calcform4.operis.value == "3")  {
-      var total = parseInt(precprod) + (((parseInt(precprod)) / 100) * 10);
-      var totalf = ( total / 3 );
-	  document.calcform4.resSxzT.value = total;
-      document.getElementById('digitoSeTotal').innerHTML = "Com 3 prestações apenas o valor total fica em ";
-	  document.calcform4.resSxzP.value = totalf;
-      document.getElementById('digitoSprest').innerHTML = "Cada prestação fica em ";
+   var nomealuno = document.calcformNota.valorNomeAl.value;
+   var nota1 = document.calcformNota.valornot1.value; 
+   var nota2 = document.calcformNota.valornot2.value;
+   var nota3 = document.calcformNota.valornot3.value;
+   var medianota = (parseInt(nota1) + parseInt(nota2) + parseInt(nota3))/3;
+   if (medianota >= 8)  {
+	  document.calcformNota.valornotR.value = medianota;
+      document.getElementById('digitoNota').innerHTML = "O aluno "+nomealuno+" foi aprovado e sua nota é ";
     } else {
-	  if (document.calcform4.operis.value == "5")  {
-      var total2 = parseInt(precprod) + (((parseInt(precprod)) / 100) * 20);
-      var totalf2 = ( total2 / 5 );
-	  document.calcform4.resSxzT.value = total2;
-      document.getElementById('digitoSeTotal').innerHTML = "Com 5 prestações apenas o valor total fica em ";
-	  document.calcform4.resSxzP.value = totalf2;
-      document.getElementById('digitoSprest').innerHTML = "Cada prestação fica em ";
+	  if (medianota < 8)  {
+      document.calcformNota.valornotR.value = medianota;
+      document.getElementById('digitoNota').innerHTML = "O aluno "+nomealuno+" não foi aprovado e sua nota é ";
 	   }
     }
    
