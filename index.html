@@ -96,6 +96,30 @@ function calcularPrest() {
    
 }
 
+
+function calcularNota() {
+   var precprod = document.calcform4.valorVisA.value; 
+   if (document.calcform4.operis.value == "3")  {
+      var total = parseInt(precprod) + (((parseInt(precprod)) / 100) * 10);
+      var totalf = ( total / 3 );
+	  document.calcform4.resSxzT.value = total;
+      document.getElementById('digitoSeTotal').innerHTML = "Com 3 prestações apenas o valor total fica em ";
+	  document.calcform4.resSxzP.value = totalf;
+      document.getElementById('digitoSprest').innerHTML = "Cada prestação fica em ";
+    } else {
+	  if (document.calcform4.operis.value == "5")  {
+      var total2 = parseInt(precprod) + (((parseInt(precprod)) / 100) * 20);
+      var totalf2 = ( total2 / 5 );
+	  document.calcform4.resSxzT.value = total2;
+      document.getElementById('digitoSeTotal').innerHTML = "Com 5 prestações apenas o valor total fica em ";
+	  document.calcform4.resSxzP.value = totalf2;
+      document.getElementById('digitoSprest').innerHTML = "Cada prestação fica em ";
+	   }
+    }
+   
+   
+}
+
 </script>
 
 </head>
@@ -179,7 +203,27 @@ function calcularPrest() {
       <input type="button" value="calcularPrest" class="botao" onClick="calcularPrest()"/>
   </form>  
   
+   <H2> Exercicio 5 Notas e aprovação  </h2>
+
+  <form name="calcformNota" method="post" action="">
   
+      <label for="valorNOme">Digite o Nome do aluno :</label>
+      <input type="text" name="valorNomeAl" id="valorNomeAl" />
+ 
+      <label for="valorNota1">Digite a nota 1:</label>
+      <input type="text" name="valornot1" id="valornot1" />
+	  
+	  <label for="valorNota2">Digite a nota 2:</label>
+      <input type="text" name="valornot2" id="valornot2" />
+	  
+	  <label for="valorNota3">Digite a nota 3:</label>
+      <input type="text" name="valornot3" id="valornot3" />
+     
+      <label for="NotR"><h4 id="digitoNota"></h4></label>
+      <input type="text" name="valornotR" id="valornotR" />
+
+      <input type="button" value="Calcular" class="botao" onClick= calcularNota(); "/>
+  </form>  
 
 </body>
 </html>
