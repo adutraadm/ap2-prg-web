@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Devin - Calculadora Simples</title>
+<title>Exercicios Ap2 Programação Unigranrio </title>
 <style>
 
 form fieldset {
@@ -50,18 +50,36 @@ function calcular() {
 }
 
 function calcularSal() {
+   var valorn = document.calcform2.valorbt.value; 
    var valorS = document.calcform2.valorb1.value;
    var resS = parseInt(valorS) + (((parseInt(valorS)) / 100) * 10);
    document.calcform2.resS.value = resS;
+   document.getElementById('digito').innerHTML = "O novo salario de " + valorn + " Com aumnento de 10% é : " ;
+}
+
+function calcularSe() {
+   var A = document.calcform3.valorbn.value; 
+   var B = document.calcform3.valorbz.value;
+   if (A == B) {
+      var C = (parseInt(A) + parseInt(B));
+	  document.calcform3.resSxz.value = C;
+      document.getElementById('digitoSe').innerHTML = "Como o valor de A e B são iguais então a Soma é  " + C ;
+} else {
+      var C = (parseInt(A) * parseInt(B));
+      document.calcform3.resSxz.value = C;
+      document.getElementById('digitoSe').innerHTML = "Como o valor de A e B são diferentes a multiplicação deles é " + C ;
+}
+   
+   
 }
 </script>
 
 </head>
 <body>
 
-<H2> Exercicio 1 Média aritimetica </h2>
+   <H2> Exercicio 1 Média aritimetica </h2>
 
-<form name="calcform" method="post" action="">
+   <form name="calcform" method="post" action="">
    
 
       <label for="valor1">Digite o valor <strong>1</strong>:</label>
@@ -84,17 +102,35 @@ function calcularSal() {
 
   <form name="calcform2" method="post" action="">
   
-      <label for="valor1">Digite o Nome do Funcionario :</label>
-      <input type="text" name="valorb1" id="valorb1" />
+      <label for="valor1a">Digite o Nome do Funcionario :</label>
+      <input type="text" name="valorbt" id="valorbt" />
  
-      <label for="valor1">Digite o valor do Salario Atual:</label>
+      <label for="valor2b">Digite o valor do Salario Atual:</label>
       <input type="text" name="valorb1" id="valorb1" />
      
-      <label for="res">Novo Salario Com 10% de aumento:</label>
+      <label for="resSb"><h4 id="digito"></h4></label>
       <input type="text" name="resS" id="resS" />
 
       <input type="button" value="Calcular" class="botao" onClick= calcularSal(); "/>
   </form>
+  
+  
+   <H2> Exercicio 3 variaveis e valores  </h2>
+
+  <form name="calcform3" method="post" action="">
+  
+      <label for="valorA">Digite valor para A :</label>
+      <input type="text" name="valorbn" id="valorbn" />
+ 
+      <label for="valorB">Digite valor para B:</label>
+      <input type="text" name="valorbz" id="valorbz" />
+     
+      <label for="resSx"><h4 id="digitoSe"></h4></label>
+      <input type="text" name="resSxz" id="resSxz" />
+
+      <input type="button" value="Calcular" class="botao" onClick= calcularSe(); "/>
+  </form>  
+  
 
 </body>
 </html>
