@@ -57,7 +57,7 @@ function calcularSal() {
    document.getElementById('digito').innerHTML = "O novo salario de " + valorn + " Com aumnento de 10% é : " ;
 }
 
-function calcularSe() {
+function calcularSe(oper) {
    var A = document.calcform3.valorbn.value; 
    var B = document.calcform3.valorbz.value;
    if (A == B) {
@@ -72,6 +72,30 @@ function calcularSe() {
    
    
 }
+
+function calcularPrest() {
+   var precprod = document.calcform4.valorVisA.value; 
+   if (document.calcform4.operis.value == "3")  {
+      var total = parseInt(precprod) + (((parseInt(precprod)) / 100) * 10);
+      var totalf = ( total / 3 );
+	  document.calcform4.resSxzT.value = total;
+      document.getElementById('digitoSeTotal').innerHTML = "Com 3 prestações apenas o valor total fica em ";
+	  document.calcform4.resSxzP.value = totalf;
+      document.getElementById('digitoSprest').innerHTML = "Cada prestação fica em ";
+    } else {
+	  if (document.calcform4.operis.value == "5")  {
+      var total2 = parseInt(precprod) + (((parseInt(precprod)) / 100) * 20);
+      var totalf2 = ( total2 / 5 );
+	  document.calcform4.resSxzT.value = total2;
+      document.getElementById('digitoSeTotal').innerHTML = "Com 5 prestações apenas o valor total fica em ";
+	  document.calcform4.resSxzP.value = totalf2;
+      document.getElementById('digitoSprest').innerHTML = "Cada prestação fica em ";
+	   }
+    }
+   
+   
+}
+
 </script>
 
 </head>
@@ -130,6 +154,31 @@ function calcularSe() {
 
       <input type="button" value="Calcular" class="botao" onClick= calcularSe(); "/>
   </form>  
+  
+  
+  <H2> Exercicio 4 Calcular prestações </h2>
+
+  <form name="calcform4" method="post" action="">
+  
+      <label for="valorVis">Digite valor total do item :</label>
+      <input type="text" name="valorVisA" id="valorVisA" />
+      
+      <label for="opera">Selecione a qtd de parcelas:</label>	  
+	  <select name="operis" id="operis">
+         <option value="3">3</option>
+         <option value="5">5</option>
+      </select>
+ 
+     
+      <label for="resSxPr"><h4 id="digitoSprest"></h4></label>
+      <input type="text" name="resSxzP" id="resSxzP" />
+	  
+	  <label for="resSxTo"><h4 id="digitoSeTotal"></h4></label>
+      <input type="text" name="resSxzT" id="resSxzT" />
+
+      <input type="button" value="calcularPrest" class="botao" onClick="calcularPrest()"/>
+  </form>  
+  
   
 
 </body>
