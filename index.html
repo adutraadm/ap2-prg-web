@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Devin - Calculadora Simples</title>
+<style>
+
+form fieldset {
+   margin: 10px auto 10px auto;
+   width: 40%;
+   border: solid black 1px;
+   padding: 3%;
+}
+
+form legend {
+   padding: 6px;
+   margin: 10px;
+   border: solid black 1px;
+   font-size: 90%;
+   font-weight: bold;
+   background-color: #e8e8e8;
+}
+
+form label {
+   display: block;
+   font-size: 11px;
+}
+
+form input {
+   width: 100%;
+   border: solid #ccc 1px;
+   font-size: 11px;
+   margin-bottom: 10px;
+}
+
+form input.botao {
+   display: block;
+   width: auto;
+   float: right;
+}
+</style>
+
+<script type="text/javascript">
+function calcular() {
+   var valor1 = document.calcform.valor1.value;
+   var valor2 = document.calcform.valor2.value;
+   var valor3 = document.calcform.valor3.value;
+   var res = (parseInt(valor1) + parseInt(valor2) + parseInt(valor3))/3;
+   document.calcform.res.value = res;
+}
+
+function calcularSal() {
+   var valorS = document.calcform2.valorb1.value;
+   var resS = parseInt(valorS) + (((parseInt(valorS)) / 100) * 10);
+   document.calcform2.resS.value = resS;
+}
+</script>
+
+</head>
+<body>
+
+<H2> Exercicio 1 Média aritimetica </h2>
+
+<form name="calcform" method="post" action="">
+   
+
+      <label for="valor1">Digite o valor <strong>1</strong>:</label>
+      <input type="text" name="valor1" id="valor1" />
+
+      <label for="valor2">Digite o valor <strong>2</strong>:</label>
+      <input type="text" name="valor2" id="valor2" />
+	  
+	  <label for="valor3">Digite o valor <strong>3</strong>:</label>
+      <input type="text" name="valor3" id="valor3" />
+
+      
+      <label for="res">Resultado Da média :</label>
+      <input type="text" name="res" id="res" />
+
+      <input type="button" value="Calcular" class="botao" onClick= calcular(); "/>
+  </form>
+  
+  <H2> Exercicio 2 Salario aumento </h2>
+
+  <form name="calcform2" method="post" action="">
+  
+      <label for="valor1">Digite o Nome do Funcionario :</label>
+      <input type="text" name="valorb1" id="valorb1" />
+ 
+      <label for="valor1">Digite o valor do Salario Atual:</label>
+      <input type="text" name="valorb1" id="valorb1" />
+     
+      <label for="res">Novo Salario Com 10% de aumento:</label>
+      <input type="text" name="resS" id="resS" />
+
+      <input type="button" value="Calcular" class="botao" onClick= calcularSal(); "/>
+  </form>
+
+</body>
+</html>
