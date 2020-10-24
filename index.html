@@ -228,6 +228,15 @@ do {
    document.getElementById('Somatoriob').innerHTML =" A soma dos valores é : "+totalb;
 }
 
+function contafinalz() {
+  var n1 = [];
+  n1.push(Number(window.prompt('Digite o primeiro número: ')));
+  document.getElementById('Somatoriobt').innerHTML =" A soma dos valores é : "+(n1[0]);
+}
+
+
+
+
 
 </script>
 
@@ -394,7 +403,27 @@ do {
 	<h4 id="Somatoriob"></h4>
 	<input type="button" value="calcular selecao" class="botao" onClick= laco1do(); />
 
+<H2> Exercicio 9 laço contandosó para com digitação de valor 0  </h2>
 
+   <label for="Valwc1">Digite valores diferentes de zero para acrescentar a tabela:</label>
+      <input type="text" name="Valwc1t" id="Valwc1t" />
+
+
+  <table>
+        <thead>
+            <tr>
+                <th colspan="2">Exibição valores</th>
+            </tr>
+            <tr>
+                <td id="ordbt"><b>ordem</b></td>
+                <td id="valbt"><b>valor</b></td>
+            </tr>
+        </thead>
+        <tbody id="corpoDaTabelabt">
+        </tbody>
+    </table>
+	<h4 id="Somatoriobt"></h4>
+	<input type="button" value="calcular selecao" class="botao" onClick= contafinalz(); />
 
 
 </body>

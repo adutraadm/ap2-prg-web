@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript</title>
+	</head>
+	<body>
+		<script>
+			// criando um array
+			var vetor = [1, 2, 3, 4];
+			
+			// mostrando todos os elementos do array vetor
+			for(var i = 0; i < vetor.length; i++)
+				console.log(vetor[i]);
+			
+			// outra forma de criar um array
+			var vetor2 = new Array(1, 2, 3, 4);
+			// mostrando todos os elementos do array vetor2
+			for(var i = 0; i < vetor2.length; i++)
+				console.log(vetor2[i]);
+				
+			// alterando um elemento do array vetor
+			vetor[0] = "geeksbr"
+			// mostrando o valor armazenado na posição 0 do vetor
+			console.log(vetor[0]);
+			
+			// adicionando elemento no array vetor
+			// usa-se o método push, adiciona no final
+			vetor.push(5);
+			console.log(vetor[4]); // mostrando o elemento
+			
+			// removendo elemento do array vetor
+			// usa-se o método pop, remove o último elemento
+			vetor.pop();
+			console.log(vetor);
+			
+			/*
+				Utilizando o método splice
+				o primeiro parâmetro é a posição inicial
+				de inserção dos elementos.
+				o segundo parâmetro é a quantidade de
+				elementos que serão deletados
+				o outros parâmetros são os elementos que
+				irão ser adicionados
+				
+				vetor tem os seguintes elementos:
+				["geeksbr", 2, 3, 4]
+				
+				irei fazer splice(1, 0, 5, 6), ou seja,
+				vou começar adicionando os novos elementos
+				a partir do índice 1, passei 0 porque não
+				quero deletar elemento algum. 5 e 6 são
+				os novos elementos que serão adicionados
+				
+				depois de usar o splice vai ficar:
+				["geeksbr", 5, 6, 2, 3, 4]
+			*/
+			vetor.splice(1, 0, 5, 6)
+			console.log(vetor);
+			
+			// agora irei eliminar o primeiro elemento
+			// do vetor, ou seja, o elemento "geeksbr"
+			vetor.splice(0, 1);
+			console.log(vetor);
+			
+			// exemplo de array bidimensional
+			var matriz = [[1,2],[3,4]]
+			
+			// iterando na matriz para mostrar os elementos
+			for(var i = 0; i < matriz.length; i++)
+			{
+				for(var j = 0; j < matriz.length; j++)
+				{
+					console.log(matriz[i][j]);
+				}
+			}
+		</script>
+	</body>
+</html>
