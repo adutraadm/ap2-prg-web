@@ -116,6 +116,30 @@ function calcularNota() {
    
 }
 
+
+function Selectooer() {
+   var int1 = document.formselec.Valsec1.value; 
+   var int2 = document.formselec.Valsec2.value;
+
+   if (document.formselec.operisec.value == "1") {
+      var valfinalx = parseInt(int1) + parseInt(int2);
+	  document.formselec.selectm.value = valfinalx;
+      document.getElementById('digitoSelec').innerHTML = "Selecionado 1 somar valores resultado";
+	  } else {
+	  if (document.formselec.operisec.value == "2")  {
+       var valfinalx = parseInt(int1) * parseInt(int2);
+	   document.formselec.selectm.value = valfinalx;
+       document.getElementById('digitoSelec').innerHTML = "Selecionado 2 valores multiplicados";
+	   } else {
+       var valfinalx = parseInt(int1) / parseInt(int2);
+	   document.formselec.selectm.value = valfinalx;
+       document.getElementById('digitoSelec').innerHTML = "Selecionado 3 valores divididos";
+	   } 
+    }
+   
+   
+}
+
 </script>
 
 </head>
@@ -219,6 +243,53 @@ function calcularNota() {
       <input type="text" name="valornotR" id="valornotR" />
 
       <input type="button" value="Calcular" class="botao" onClick= calcularNota(); "/>
+  </form>  
+  
+  
+  <H2> Exercicio 6 numeros e selecao </h2>
+
+  <form name="formselec" method="post" action="">
+  
+      <label for="Valsec">Digite numero inteiro 1 :</label>
+      <input type="text" name="Valsec1" id="Valsec1" />
+	  
+	  <label for="Valsec">Digite numero inteiro 2 :</label>
+      <input type="text" name="Valsec2" id="Valsec2" />
+      
+      <label for="operasec">Selecione a opção de operação:</label>	  
+	  <select name="operisec" id="operisec">
+         <option value="1">1</option>
+         <option value="2">2</option>
+		 <option value="3">3</option>
+      </select>
+       
+	  <label for="resSelec"><h4 id="digitoSelec"></h4></label>
+      <input type="text" name="selectm" id="selectm" />
+
+      <input type="button" value="calcular selecao" class="botao" onClick= Selectooer(); />
+  </form>  
+  
+  <H2> Exercicio 7 numeros e selecao </h2>
+
+  <form name="formselec" method="post" action="">
+  
+      <label for="Valsec">Digite numero inteiro 1 :</label>
+      <input type="text" name="Valsec1" id="Valsec1" />
+	  
+	  <label for="Valsec">Digite numero inteiro 2 :</label>
+      <input type="text" name="Valsec2" id="Valsec2" />
+      
+      <label for="operasec">Selecione a opção de operação:</label>	  
+	  <select name="operisec" id="operisec">
+         <option value="1">1</option>
+         <option value="2">2</option>
+		 <option value="3">3</option>
+      </select>
+       
+	  <label for="resSelec"><h4 id="digitoSelec"></h4></label>
+      <input type="text" name="selectm" id="selectm" />
+
+      <input type="button" value="calcular selecao" class="botao" onClick= Selectooer(); />
   </form>  
 
 </body>
