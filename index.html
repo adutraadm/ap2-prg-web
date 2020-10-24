@@ -140,9 +140,6 @@ function Selectooer() {
    
 }
 
-function getTotal(total, item) {
- return total + (item.value * item.quantity);
-}
 
 function laco1() {
    const valores = [
@@ -185,7 +182,50 @@ while(index < valores.length ) {
  
 }
    
-   document.getElementById('Somatorio').innerHTML = total;
+   document.getElementById('Somatorio').innerHTML =" A soma dos valores é : "+total;
+}
+
+function laco1do() {
+   const valoresb = [
+    {ordem: "1", valor: 18},
+    {ordem: "2", valor: 28},
+    {ordem: "3", valor: 25},
+    {ordem: "4", valor: 32},
+    {ordem: "5", valor: 30},
+    {ordem: "6", valor: 27},
+    {ordem: "7", valor: 22},
+    {ordem: "8", valor: 29},
+    {ordem: "9", valor: 29},
+    {ordem: "10", valor: 30},
+	{ordem: "11", valor: 18},
+    {ordem: "12", valor: 28},
+    {ordem: "13", valor: 19},
+    {ordem: "14", valor: 25},
+    {ordem: "15", valor: 32},
+    {ordem: "16", valor: 30},
+    {ordem: "17", valor: 27},
+    {ordem: "18", valor: 22},
+    {ordem: "19", valor: 29},
+    {ordem: "20", valor: 30}
+];
+
+let minhaTabela = document.querySelector('#corpoDaTabelab');
+let totalb = 0;
+let index = 0;
+
+do {
+   minhaTabela.insertAdjacentHTML('beforeend', `
+    <tr>
+        <td>${valoresb[index].ordem}</td>
+        <td>${valoresb[index].valor}</td>
+    </tr>
+    `);
+    totalb += valoresb[index].valor;
+    index++;
+	
+} while(index < valoresb.length );
+  
+   document.getElementById('Somatoriob').innerHTML =" A soma dos valores é : "+totalb;
 }
 
 
@@ -318,7 +358,7 @@ while(index < valores.length ) {
       <input type="button" value="calcular selecao" class="botao" onClick= Selectooer(); />
   </form>  
   
-  <H2> Exercicio 7 laço contando 20 valores </h2>
+  <H2> Exercicio 7 laço contando 20 valores com while </h2>
 
   <table>
         <thead>
@@ -335,6 +375,27 @@ while(index < valores.length ) {
     </table>
 	<h4 id="Somatorio"></h4>
 	<input type="button" value="calcular selecao" class="botao" onClick= laco1(); />
+
+<H2> Exercicio 8 laço contando 20 valores com while do </h2>
+
+  <table>
+        <thead>
+            <tr>
+                <th colspan="2">Ordem de valores e somatorio</th>
+            </tr>
+            <tr>
+                <td id="ordb"><b>ordem</b></td>
+                <td id="valb"><b>valor</b></td>
+            </tr>
+        </thead>
+        <tbody id="corpoDaTabelab">
+        </tbody>
+    </table>
+	<h4 id="Somatoriob"></h4>
+	<input type="button" value="calcular selecao" class="botao" onClick= laco1do(); />
+
+
+
 
 </body>
 </html>
