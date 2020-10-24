@@ -140,6 +140,55 @@ function Selectooer() {
    
 }
 
+function getTotal(total, item) {
+ return total + (item.value * item.quantity);
+}
+
+function laco1() {
+   const valores = [
+    {ordem: "1", valor: 18},
+    {ordem: "2", valor: 28},
+    {ordem: "3", valor: 25},
+    {ordem: "4", valor: 32},
+    {ordem: "5", valor: 30},
+    {ordem: "6", valor: 27},
+    {ordem: "7", valor: 22},
+    {ordem: "8", valor: 29},
+    {ordem: "9", valor: 29},
+    {ordem: "10", valor: 30},
+	{ordem: "11", valor: 18},
+    {ordem: "12", valor: 28},
+    {ordem: "13", valor: 19},
+    {ordem: "14", valor: 25},
+    {ordem: "15", valor: 32},
+    {ordem: "16", valor: 30},
+    {ordem: "17", valor: 27},
+    {ordem: "18", valor: 22},
+    {ordem: "19", valor: 29},
+    {ordem: "20", valor: 30}
+];
+
+let minhaTabela = document.querySelector('#corpoDaTabela');
+let total = 0;
+let index = 0;
+
+while(index < valores.length ) {
+    
+    minhaTabela.insertAdjacentHTML('beforeend', `
+    <tr>
+        <td>${valores[index].ordem}</td>
+        <td>${valores[index].valor}</td>
+    </tr>
+    `);
+    total += valores[index].valor;
+    index++;
+ 
+}
+   
+   document.getElementById('Somatorio').innerHTML = total;
+}
+
+
 </script>
 
 </head>
@@ -269,28 +318,23 @@ function Selectooer() {
       <input type="button" value="calcular selecao" class="botao" onClick= Selectooer(); />
   </form>  
   
-  <H2> Exercicio 7 numeros e selecao </h2>
+  <H2> Exercicio 7 laço contando 20 valores </h2>
 
-  <form name="formselec" method="post" action="">
-  
-      <label for="Valsec">Digite numero inteiro 1 :</label>
-      <input type="text" name="Valsec1" id="Valsec1" />
-	  
-	  <label for="Valsec">Digite numero inteiro 2 :</label>
-      <input type="text" name="Valsec2" id="Valsec2" />
-      
-      <label for="operasec">Selecione a opção de operação:</label>	  
-	  <select name="operisec" id="operisec">
-         <option value="1">1</option>
-         <option value="2">2</option>
-		 <option value="3">3</option>
-      </select>
-       
-	  <label for="resSelec"><h4 id="digitoSelec"></h4></label>
-      <input type="text" name="selectm" id="selectm" />
-
-      <input type="button" value="calcular selecao" class="botao" onClick= Selectooer(); />
-  </form>  
+  <table>
+        <thead>
+            <tr>
+                <th colspan="2">Ordem de valores e somatorio</th>
+            </tr>
+            <tr>
+                <td id="ord1"><b>ordem</b></td>
+                <td id="val1"><b>valor</b></td>
+            </tr>
+        </thead>
+        <tbody id="corpoDaTabela">
+        </tbody>
+    </table>
+	<h4 id="Somatorio"></h4>
+	<input type="button" value="calcular selecao" class="botao" onClick= laco1(); />
 
 </body>
 </html>
