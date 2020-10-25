@@ -229,14 +229,80 @@ do {
 }
 
 function contafinalz() {
-  var n1 = [];
-  n1.push(Number(window.prompt('Digite o primeiro número: ')));
-  document.getElementById('Somatoriobt').innerHTML =" A soma dos valores é : "+(n1[0]);
+  
+ var n1 = [];  
+let minhaTabela = document.querySelector('#corpoDaTabelabt');
+let totalc = 0;
+let index = 0;
+
+while(valprov != 0 ) {
+  var valprov = Number(window.prompt('Digite o primeiro número: '))
+  n1.push(valprov);
+  minhaTabela.insertAdjacentHTML('beforeend', `
+    <tr>
+        <td>${valprov}</td>
+    </tr>
+    `);
+	totalc += valprov;
+    index++;
+   
+}
+  document.getElementById('Somatoriobt').innerHTML =" A soma dos valores é : "+totalc;
+  
 }
 
 
+function calcpedido() {
+
+   var prod = document.formprd.Valprd.value; 
+   var qtd = document.formprd.ValQtd.value;
+   var valorfin = 0 ;
+
+   const produtos = [
+    {ordem: "100", valor: "1.70"},
+    {ordem: "101", valor: "2.30"},
+    {ordem: "102", valor: "2.60"},
+    {ordem: "103", valor: "2.40"},
+    {ordem: "104", valor: "2.50"},
+    {ordem: "105", valor: "1.00"}  
+];
+
+let totalF = 0;
+let index = 0;
+
+  while(prod != produtos[index].ordem ) {
+	
+    index++;
+ 
+}
+valorfin = produtos[index].valor;
+var number = Number(valorfin.replace(/[^0-9.-]+/g,""));
+var valorexib = number * qtd;
+ var formatado = "R$ " + valorexib.toFixed(2).replace(".",",");
+document.getElementById('Somatoriobtped').innerHTML =" A soma do valor do pedido é : "+ formatado;
 
 
+}
+
+function calcparquad() {
+
+var i = 1;
+let minhaTabela = document.querySelector('#corpoDaTabelabparquad');
+ while(i < 100 ) {
+	if (i % 2 == 0) {
+minhaTabela.insertAdjacentHTML('beforeend', `
+    <tr>
+        <td>${i}</td>
+        <td>${i * i}</td>
+    </tr>
+    `);
+}else{
+
+   }
+    i++;
+ }
+
+}
 
 </script>
 
@@ -364,7 +430,7 @@ function contafinalz() {
 	  <label for="resSelec"><h4 id="digitoSelec"></h4></label>
       <input type="text" name="selectm" id="selectm" />
 
-      <input type="button" value="calcular selecao" class="botao" onClick= Selectooer(); />
+      <input type="button" value="calcular" class="botao" onClick= Selectooer(); />
   </form>  
   
   <H2> Exercicio 7 laço contando 20 valores com while </h2>
@@ -383,7 +449,7 @@ function contafinalz() {
         </tbody>
     </table>
 	<h4 id="Somatorio"></h4>
-	<input type="button" value="calcular selecao" class="botao" onClick= laco1(); />
+	<input type="button" value="calcular" class="botao" onClick= laco1(); />
 
 <H2> Exercicio 8 laço contando 20 valores com while do </h2>
 
@@ -401,21 +467,18 @@ function contafinalz() {
         </tbody>
     </table>
 	<h4 id="Somatoriob"></h4>
-	<input type="button" value="calcular selecao" class="botao" onClick= laco1do(); />
+	<input type="button" value="calcular" class="botao" onClick= laco1do(); />
 
-<H2> Exercicio 9 laço contandosó para com digitação de valor 0  </h2>
+<H2> Exercicio 9 laço contando só para com digitação de valor 0  </h2>
 
-   <label for="Valwc1">Digite valores diferentes de zero para acrescentar a tabela:</label>
-      <input type="text" name="Valwc1t" id="Valwc1t" />
-
-
+   <label for="Valwc1">Digite valores e zero pra finalizar:</label>
+  
   <table>
         <thead>
             <tr>
                 <th colspan="2">Exibição valores</th>
             </tr>
             <tr>
-                <td id="ordbt"><b>ordem</b></td>
                 <td id="valbt"><b>valor</b></td>
             </tr>
         </thead>
@@ -423,7 +486,86 @@ function contafinalz() {
         </tbody>
     </table>
 	<h4 id="Somatoriobt"></h4>
-	<input type="button" value="calcular selecao" class="botao" onClick= contafinalz(); />
+	<input type="button" value="calcular" class="botao" onClick= contafinalz(); />
+
+<H2> Exercicio 10 exercicio para somar pedido restaurante  </h2>
+
+   <label for="Valwc1">Digite valores e zero pra finalizar:</label>
+  
+  <table BORDER=1>
+        <thead>
+            <tr>
+                <th colspan="2">Exibição valores</th>
+            </tr>
+            <tr>
+                 <td ><b>Codigo</b></td>
+                 <td ><b>produto</b></td>
+                 <td ><b>Preço unitario (R$) </b></td>
+            </tr>
+			<tr>
+                 <td ><b>100</b></td>
+                 <td ><b>Cachorro Quente</b></td>
+                 <td ><b>R$ 1,70</b></td>
+            </tr>
+			<tr>
+                 <td ><b>101</b></td>
+                 <td ><b>Bauru simples</b></td>
+                 <td ><b>R$ 2,30</b></td>
+            </tr>
+			<tr>
+                 <td ><b>102</b></td>
+                 <td ><b>Bauru com ovo</b></td>
+                 <td ><b>R$ 2,60</b></td>
+            </tr>
+			<tr>
+                 <td ><b>103</b></td>
+                 <td ><b>Hamburguer</b></td>
+                 <td ><b>R$ 2,40</b></td>
+            </tr>
+			<tr>
+                 <td ><b>104</b></td>
+                 <td ><b>Chesseburguer</b></td>
+                 <td ><b>R$ 2,50</b></td>
+            </tr>
+			<tr>
+                 <td ><b>105</b></td>
+                 <td ><b>Refrigerante</b></td>
+                 <td ><b>R$ 1,00</b></td>
+            </tr>
+        </thead>
+        <tbody id="corpoDaTabelabtpre">
+        </tbody>
+    </table>
+  <form name="formprd" method="post" action="">
+	 <label for="Valsec">Digite o codigo do produto :</label>
+      <input type="text" name="Valprd" id="Valprd" />
+	  
+	  <label for="Valsec">Quantidade :</label>
+      <input type="text" name="ValQtd" id="ValQtd" />
+   	  
+	  
+	<h4 id="Somatoriobtped"></h4>
+	<input type="button" value="calcular" class="botao" onClick= calcpedido(); />
+   </form>
+
+<H2> Exercicio 11 exercicio Final testar numeros pares e mostra o seu quadrado  </h2>
+
+   <table>
+        <thead>
+            <tr>
+                <th colspan="2">Numeros pares e ao quadrado</th>
+            </tr>
+            <tr>
+                <td id="ordbp"><b>Numero par</b></td>
+                <td id="valbp"><b>quadrado</b></td>
+            </tr>
+        </thead>
+        <tbody id="corpoDaTabelabparquad">
+        </tbody>
+    </table>
+	<input type="button" value="calcular" class="botao" onClick= calcparquad(); />
+   </form>
+
 
 
 </body>
